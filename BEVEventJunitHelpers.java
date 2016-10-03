@@ -1,4 +1,4 @@
-package com.wellsfargo.transferandpay.util;
+package com.test.repo;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -72,7 +72,7 @@ public class BEVEventJunitHelpers {
 		try {
 			//Define the logger for the builder
 			final Logger logger = (Logger) LoggerFactory
-					.getLogger("com.wellsfargo.secure.connect.bev.builder.BusinessEventJAXBBuilder");
+					.getLogger("com.secure.connect.bev.builder.BusinessEventJAXBBuilder");
 			//Define the appender with a name
 			Mockito.when(mockAppender.getName()).thenReturn("BEVEVENTMOCK");
 			//Set filter level to INFO as the BEV events are logged as INFO
@@ -167,10 +167,10 @@ public class BEVEventJunitHelpers {
 			@SuppressWarnings("serial")
 			HashMap<String, String> prefMap = new HashMap<String, String>() {
 				{
-					put("ns3", "http://eai-schemas.wellsfargo.com/provider/aps/distributedSysMngmt/logBusinessEvent/2003/");
-					put("ns2", "http://eai-schemas.wellsfargo.com/base/");
-					put("ns4", "http://eai-schemas.wellsfargo.com/provider/aps/distributedSysMngmt/logBusinessEvent/2003/");
-					put("bos", "http://eai-schemas.wellsfargo.com/serviceprovider/bos/");
+					put("ns3", "http://eai-schemas.com/provider/aps/distributedSysMngmt/logBusinessEvent/2003/");
+					put("ns2", "http://eai-schemas.com/base/");
+					put("ns4", "http://eai-schemas.com/provider/aps/distributedSysMngmt/logBusinessEvent/2003/");
+					put("bos", "http://eai-schemas.com/serviceprovider/bos/");
 				}
 			};
 			SimpleNamespaceContext namespaces = new SimpleNamespaceContext(prefMap);
