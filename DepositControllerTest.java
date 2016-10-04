@@ -1,10 +1,10 @@
 /**
  *
  */
-package com.wellsfargo.isg.wireless.web.mba.controllers.deposit;
+package com.isg.wireless.web.mba.controllers.deposit;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;a
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -57,64 +57,64 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.miteksystems.DepositCheckResult;
 import com.miteksystems.PhoneVendorServiceSoap;
-import com.wellsfargo.isg.shared.system.Domain;
-import com.wellsfargo.isg.shared.system.context.Context;
-import com.wellsfargo.isg.shared.system.context.CtxtField;
-import com.wellsfargo.isg.shared.system.context.RequestCtxt;
-import com.wellsfargo.isg.wireless.app.AppDescriptor;
-import com.wellsfargo.isg.wireless.app.AppDescriptor.AppId;
-import com.wellsfargo.isg.wireless.dao.FeaturesDao;
-import com.wellsfargo.isg.wireless.dao.deposit.DepositDao;
-import com.wellsfargo.isg.wireless.dao.deposit.DepositLimitsDao;
-import com.wellsfargo.isg.wireless.delegates.aps.AuthorizeAcctListForDesktopDepositDelegate;
-import com.wellsfargo.isg.wireless.delegates.aps.AuthorizeAcctListForDesktopDepositDelegate.AuthorizeAcctListForDesktopDepositDTO;
-import com.wellsfargo.isg.wireless.delegates.aps.AuthorizeAcctListForDesktopDepositDelegate.AuthorizeAcctListForDesktopDepositInputDTO;
-import com.wellsfargo.isg.wireless.delegates.aps.AuthorizeAcctListForDesktopDepositDelegate.ForEachCustAcctAcsResponseListTypeDTO;
-import com.wellsfargo.isg.wireless.delegates.tms.DepositDelegate;
-import com.wellsfargo.isg.wireless.delegates.tms.DepositDelegate.DepositInputDTO;
-import com.wellsfargo.isg.wireless.delegates.tms.DepositDelegate.DepositOutputDTO;
-import com.wellsfargo.isg.wireless.impl.dao.deposit.DepositDaoWithExceptionHandler;
-import com.wellsfargo.isg.wireless.impl.delegates.tms.DepositDelegateImpl;
-import com.wellsfargo.isg.wireless.impl.model.AddressImpl;
-import com.wellsfargo.isg.wireless.impl.model.ProductMarketCode;
-import com.wellsfargo.isg.wireless.impl.model.TransactionSummaryImpl;
-import com.wellsfargo.isg.wireless.impl.model.ViewImpl;
-import com.wellsfargo.isg.wireless.impl.service.AccountServiceImpl;
-import com.wellsfargo.isg.wireless.impl.service.FeaturesServiceImpl;
-import com.wellsfargo.isg.wireless.impl.service.deposit.CheckImageServiceImpl;
-import com.wellsfargo.isg.wireless.impl.service.deposit.DepositLimitsServiceImpl;
-import com.wellsfargo.isg.wireless.impl.service.deposit.DepositServiceImpl;
-import com.wellsfargo.isg.wireless.impl.service.deposit.EnrollmentServiceImpl;
-import com.wellsfargo.isg.wireless.impl.service.deposit.MemoPostServiceImpl;
-import com.wellsfargo.isg.wireless.impl.service.deposit.MitekServiceImpl;
-import com.wellsfargo.isg.wireless.impl.service.deposit.TimeOnBookServiceImpl;
-import com.wellsfargo.isg.wireless.mock.model.AccountMock;
-import com.wellsfargo.isg.wireless.mock.model.CustomerMock;
-import com.wellsfargo.isg.wireless.model.Account;
-import com.wellsfargo.isg.wireless.model.AccountId;
-import com.wellsfargo.isg.wireless.model.Address;
-import com.wellsfargo.isg.wireless.model.ApplicationMode;
-import com.wellsfargo.isg.wireless.model.ApsAccountProduct;
-import com.wellsfargo.isg.wireless.model.Enrollment;
-import com.wellsfargo.isg.wireless.model.Features;
-import com.wellsfargo.isg.wireless.model.MobileContext;
-import com.wellsfargo.isg.wireless.model.TransactionAmount;
-import com.wellsfargo.isg.wireless.model.TransactionAmountFormatIndicator;
-import com.wellsfargo.isg.wireless.model.TransactionSummary;
-import com.wellsfargo.isg.wireless.model.View;
-import com.wellsfargo.isg.wireless.model.deposit.DepositAccount;
-import com.wellsfargo.isg.wireless.model.deposit.DepositData;
-import com.wellsfargo.isg.wireless.service.DelegateImplUnpackResponseInvoker;
-import com.wellsfargo.isg.wireless.service.Services;
-import com.wellsfargo.isg.wireless.service.deposit.DepositLimitsService;
-import com.wellsfargo.isg.wireless.util.DepositCheckEnd2EndTests;
-import com.wellsfargo.isg.wireless.web.mba.controllers.deposit.CheckDepositException.ExceptionReason;
-import com.wellsfargo.isg.wireless.web.mba.model.HttpSessionMobileCache;
-import com.wellsfargo.isg.wireless.web.mba.model.MobileCache;
-import com.wellsfargo.isg.wireless.web.mba.model.UserProfile;
-import com.wellsfargo.isg.wireless.web.mba.model.UserSessionAttributes;
-import com.wellsfargo.mwf.testingframework.springframework.CleverApplicationContext;
-import com.wellsfargo.service.provider.tms.mobilebanking.message._2015._01.DepositResponseType;
+import com.isg.shared.system.Domain;
+import com.isg.shared.system.context.Context;
+import com.isg.shared.system.context.CtxtField;
+import com.isg.shared.system.context.RequestCtxt;
+import com.isg.wireless.app.AppDescriptor;
+import com.isg.wireless.app.AppDescriptor.AppId;
+import com.isg.wireless.dao.FeaturesDao;
+import com.isg.wireless.dao.deposit.DepositDao;
+import com.isg.wireless.dao.deposit.DepositLimitsDao;
+import com.isg.wireless.delegates.aps.AuthorizeAcctListForDesktopDepositDelegate;
+import com.isg.wireless.delegates.aps.AuthorizeAcctListForDesktopDepositDelegate.AuthorizeAcctListForDesktopDepositDTO;
+import com.isg.wireless.delegates.aps.AuthorizeAcctListForDesktopDepositDelegate.AuthorizeAcctListForDesktopDepositInputDTO;
+import com.isg.wireless.delegates.aps.AuthorizeAcctListForDesktopDepositDelegate.ForEachCustAcctAcsResponseListTypeDTO;
+import com.isg.wireless.delegates.tms.DepositDelegate;
+import com.isg.wireless.delegates.tms.DepositDelegate.DepositInputDTO;
+import com.isg.wireless.delegates.tms.DepositDelegate.DepositOutputDTO;
+import com.isg.wireless.impl.dao.deposit.DepositDaoWithExceptionHandler;
+import com.isg.wireless.impl.delegates.tms.DepositDelegateImpl;
+import com.isg.wireless.impl.model.AddressImpl;
+import com.isg.wireless.impl.model.ProductMarketCode;
+import com.isg.wireless.impl.model.TransactionSummaryImpl;
+import com.isg.wireless.impl.model.ViewImpl;
+import com.isg.wireless.impl.service.AccountServiceImpl;
+import com.isg.wireless.impl.service.FeaturesServiceImpl;
+import com.isg.wireless.impl.service.deposit.CheckImageServiceImpl;
+import com.isg.wireless.impl.service.deposit.DepositLimitsServiceImpl;
+import com.isg.wireless.impl.service.deposit.DepositServiceImpl;
+import com.isg.wireless.impl.service.deposit.EnrollmentServiceImpl;
+import com.isg.wireless.impl.service.deposit.MemoPostServiceImpl;
+import com.isg.wireless.impl.service.deposit.MitekServiceImpl;
+import com.isg.wireless.impl.service.deposit.TimeOnBookServiceImpl;
+import com.isg.wireless.mock.model.AccountMock;
+import com.isg.wireless.mock.model.CustomerMock;
+import com.isg.wireless.model.Account;
+import com.isg.wireless.model.AccountId;
+import com.isg.wireless.model.Address;
+import com.isg.wireless.model.ApplicationMode;
+import com.isg.wireless.model.ApsAccountProduct;
+import com.isg.wireless.model.Enrollment;
+import com.isg.wireless.model.Features;
+import com.isg.wireless.model.MobileContext;
+import com.isg.wireless.model.TransactionAmount;
+import com.isg.wireless.model.TransactionAmountFormatIndicator;
+import com.isg.wireless.model.TransactionSummary;
+import com.isg.wireless.model.View;
+import com.isg.wireless.model.deposit.DepositAccount;
+import com.isg.wireless.model.deposit.DepositData;
+import com.isg.wireless.service.DelegateImplUnpackResponseInvoker;
+import com.isg.wireless.service.Services;
+import com.isg.wireless.service.deposit.DepositLimitsService;
+import com.isg.wireless.util.DepositCheckEnd2EndTests;
+import com.isg.wireless.web.mba.controllers.deposit.CheckDepositException.ExceptionReason;
+import com.isg.wireless.web.mba.model.HttpSessionMobileCache;
+import com.isg.wireless.web.mba.model.MobileCache;
+import com.isg.wireless.web.mba.model.UserProfile;
+import com.isg.wireless.web.mba.model.UserSessionAttributes;
+import com.mwf.testingframework.springframework.CleverApplicationContext;
+import com.service.provider.tms.mobilebanking.message._2015._01.DepositResponseType;
 
 /**
  * @author Karthiga Baskaran
@@ -137,7 +137,7 @@ import com.wellsfargo.service.provider.tms.mobilebanking.message._2015._01.Depos
 		"javax.management.*", "sun.security.ssl.*", "javax.xml.ws.spi.*",
 		"javax.xml.stream.*", "javax.xml.parsers.*", "javax.xml.validation.*",
 		"javax.crypto.*", "javax.net.ssl.*", "com.sun.xml.internal.ws.spi.*",
-		"com.wellsfargo.secure.connect.mq.*", "com.ibm.mq.*", "javax.xml.ws.*",
+		"com.secure.connect.mq.*", "com.ibm.mq.*", "javax.xml.ws.*",
 		"javax.xml.ws.handler.*" })
 public class DepositControllerTest {
 	// Exception Rule to capture exceptions and validate
