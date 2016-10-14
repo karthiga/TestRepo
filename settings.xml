@@ -1,0 +1,88 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+<proxies>
+<proxy>
+  <id>myproxy</id> 
+  <active>true</active> 
+  <protocol>http</protocol> 
+  <host>proxy.wellsfargo.com</host> 
+  <port>8080</port> 
+  <nonProxyHosts>*.wellsfargo.com</nonProxyHosts> 
+  </proxy>
+  </proxies>
+<!-- 
+ <servers>
+	  <server>
+		  <id>internal</id>
+		  <username>maven</username>
+		  <password>maven123</password>
+
+	  </server>
+  </servers>
+  
+
+  --> 
+<profiles>
+<profile>
+  <id>development</id> 
+<activation>
+<property>
+  <name>env</name> 
+  <value>dev</value> 
+  </property>
+  </activation>
+<properties>
+  <server.name>bankingAdmin</server.name> 
+  <domain.dir>C:/opt/apps/banking/${deploy.envdir}/apps</domain.dir> 
+  <dev.log.dir>C:/logs/banking/${deploy.envdir}/domain.banking.${deploy.envdir}/${server.name}</dev.log.dir> 
+  <isDevelopmentEnv>true</isDevelopmentEnv> 
+  </properties>
+  </profile>
+<profile>
+  <id>development-tomcat</id> 
+<activation>
+<property>
+  <name>eclipseAppServer</name> 
+  <value>tomcat</value> 
+  </property>
+  </activation>
+  </profile>
+<profile>
+  <id>development-weblogic</id> 
+<activation>
+<property>
+  <name>eclipseAppServer</name> 
+  <value>weblogic</value> 
+  </property>
+  </activation>
+  </profile>
+<profile>
+  <id>delegate-message-simulator</id> 
+  </profile>
+  
+  <profile>
+  	<id>sonar</id>
+ 	 <activation>
+  		<activeByDefault>true</activeByDefault>
+  	</activation>
+  	<properties>
+ 	 	<!-- SERVER ON A REMOTE HOST -->
+  		<sonar.host.url>http://localhost:9000</sonar.host.url>
+  	</properties>
+  </profile>
+  	<profile>
+				<id>eclipse</id>
+				<activation>
+					<activeByDefault>true</activeByDefault>
+				</activation>
+				<properties>
+					<weblogicHome>C:/opt/apps/WL/wls1213_dev_update3/wls12130/wlserver</weblogicHome>
+				</properties>
+			</profile>
+  </profiles>
+<activeProfiles>
+  <activeProfile>development</activeProfile> 
+  <activeProfile>development-weblogic</activeProfile> 
+<!-- <activeProfile>delegate-message-simulator</activeProfile>
+  --> 
+  </activeProfiles>
+  </settings>
