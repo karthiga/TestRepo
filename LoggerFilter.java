@@ -1,4 +1,4 @@
-package com.wellsfargo.transferandpay.util;
+package com.transferandpay.util;
 
 import java.util.Arrays;
 import java.util.List;
